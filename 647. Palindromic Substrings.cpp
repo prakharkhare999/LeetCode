@@ -1,5 +1,39 @@
 class Solution {
 public:
+int expendroundindex(string s,int i,int j){
+    int count=0;
+    while(i>=0 && j<s.length() && s[i]==s[j]){
+        count=count+1;
+        i--;
+        j++;
+    }
+    return count;
+}
+    int countSubstrings(string s) {
+        int n=s.length();
+        int count=0;
+        for(int i=0;i<n;i++){
+            //odd 
+            int odds=expendroundindex(s,i,i);
+            count=count+odds;
+            int evens=expendroundindex(s,i,i+1);
+            count=count+evens;
+
+    
+        }
+        return count;
+
+
+        
+    }
+};
+
+
+
+
+
+/*class Solution {
+public:
     int countSubstrings(string s) {
         int N = s.size();
         vector<vector<int>> dp(N, vector<int>(N, 0));
@@ -31,3 +65,4 @@ public:
         return ans;
     }
 };
+*/
