@@ -1,4 +1,44 @@
+
+//also optimal
 class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+       int count=0;
+        int maj=NULL;
+        //boyer moore voting algorithm
+         for(int i=0;i<nums.size();i++){
+             if(count==0){
+                 maj=nums[i];
+                 count=1;
+                
+             }
+             else if(nums[i]==maj){
+                 count++;
+
+             }
+             else{
+                 count--;
+             }
+         }
+        return maj;
+    }
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*class Solution {
 public:
     int majorityElement(vector<int>& v) {
 //striver optimal way
@@ -33,3 +73,4 @@ public:
         return -1;
     }
 };
+*/
