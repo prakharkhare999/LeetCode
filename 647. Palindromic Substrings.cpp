@@ -31,7 +31,7 @@ int expendroundindex(string s,int i,int j){
 
 
 
-
+//dp
 /*class Solution {
 public:
     int countSubstrings(string s) {
