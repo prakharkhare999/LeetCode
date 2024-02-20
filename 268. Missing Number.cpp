@@ -2,7 +2,7 @@ class Solution {
 public:
     int missingNumber(vector<int>& nums) {
 
-//strive yt
+//strive yt->take u forward
 //another way is xor
 int n=nums.size();
 
