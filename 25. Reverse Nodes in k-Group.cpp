@@ -46,3 +46,48 @@ public:
         return len;
     }
 };
+//another
+class Solution {
+private:
+    ListNode* reverseLinkedList(ListNode* begin, ListNode* end = nullptr) {
+        ListNode *prev = nullptr,
+                 *next;
+        
+        while (begin != end) {
+            next = begin->next;
+            begin->next = prev;
+            prev = begin;
+            begin = next;
+        }
+
+        return prev;
+    }
+
+public:
+    ListNode* reverseKGroup(ListNode* head, int k) {
+        if (k <= 1) return head;
+        if (!head || !head->next) return head;
+
+        ListNode *dummy   = new ListNode(0, head),
+                 *back    = dummy,
+                 *forward = head;
+
+        while(back) {
+            int groupLen = 0;
+            while (groupLen < k && forward) {
+                forward = forward->next;
+                ++groupLen;
+            }
+
+            if (groupLen != k) break;
+
+            ListNode *last  = back->next;
+
+            back->next = reverseLinkedList(back->next, forward);
+            last->next = forward;
+            back       = last;
+        }
+
+        return dummy->next;
+    }
+};
